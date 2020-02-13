@@ -662,9 +662,9 @@ def clock():
 def page_not_found(error):
     return 'Error 404'
 
-@app.errorhandler(500)
-def page_not_found(error):
-    return 'La qué has liado pollito'
+#@app.errorhandler(500)
+#def page_not_found(error):
+#    return 'La qué has liado pollito'
 
 @app.route("/cron/")
 @app.route("/cron")
