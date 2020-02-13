@@ -146,7 +146,7 @@ def assistant(step = 'welcome'):
     return render_template('assistant/step_' + step + '.html', step=step, next=steps[step])
 
 ########################### API ###########################
-@app.route('/test/')
+#@app.route('/test/')
 @app.route('/test')
 def test():
     publish.single("test", "payload", hostname="localhost")
