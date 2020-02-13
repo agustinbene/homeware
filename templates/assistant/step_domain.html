@@ -31,7 +31,7 @@
             </li>
             <li>Install the no-ip client in your Raspberry Pi. Find the instrucctions <a href='https://my.noip.com/#!/dynamic-dns/duc' target='black'>here</a>.</li>
           </ul>
-        
+
           <button type="button" class="btn btn-primary btn-lg" style="float: right;" onclick="process()">Next</button>
         </div>
     </div>
@@ -54,7 +54,7 @@
             }
             //setTimeout(function(){document.getElementById('alertContainer').innerHTML = '';}, 15000);
         }
-        url = 'http://' + document.getElementById('domain').value + '/test/';
+        url = 'https://' + document.getElementById('domain').value + '/test/';
         xmlHttp.open( "GET", url, true ); // false for synchronous request
         xmlHttp.send( null );
       }

@@ -1,14 +1,14 @@
 [Unit]
-Description=Homeware LAN
+Description=Homeware
 After=network-online.target
 
 [Service]
-ExecStart=python3 /home/pi/Homeware-LAN/homeware.py
-WorkingDirectory=/home/pi/Homeware-LAN/
+ExecStart=python3 /homeware/homeware.py
+WorkingDirectory=/homeware/
 StandardOutput=inherit
 StandardError=inherit
 Restart=always
-User=pi
+User=root
 
 [Install]
 WantedBy=multi-user.target

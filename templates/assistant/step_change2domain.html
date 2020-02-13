@@ -46,11 +46,11 @@
         xmlHttp.onreadystatechange = function() {
           console.log(xmlHttp.responseText)
         }
-        url = 'http://' + window.location.hostname + ':5001/assistant/operation/domain/' + document.getElementById('domain').value;
+        url = 'https://' + window.location.hostname + '/assistant/operation/domain/' + document.getElementById('domain').value;
         xmlHttp.open( "GET", url, true ); // false for synchronous request
         xmlHttp.send( null );
 
-        location.href = 'http://' + document.getElementById('domain').value + '/assistant/{{ next }}';
+        location.href = 'https://' + document.getElementById('domain').value + '/assistant/{{ next }}';
       }
     </script>
 

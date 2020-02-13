@@ -781,7 +781,7 @@ def mqttReader():
     client.on_connect = on_connect
     client.on_message = on_message
 
-    client.connect("localhost", 1883, 60)
+    client.connect("broker.net.gicom.com.ar", 1883, 60)
     client.loop_forever()
 
 if __name__ == "__main__":
