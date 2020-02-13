@@ -181,8 +181,8 @@ def operation(segment, value=""):
 
 #Front end operations
 @app.route("/front/<operation>/")
-@app.route("/front/<operation>/<segment>")
 @app.route("/front/<operation>/<segment>/")
+@app.route("/front/<operation>/<segment>")
 @app.route("/front/<operation>/<segment>/<value>/")
 @app.route("/front/<operation>/<segment>/<value>")
 def front(operation, segment = "", value = ''):
