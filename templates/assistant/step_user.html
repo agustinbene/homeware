@@ -35,7 +35,7 @@
             document.getElementById('alertContainer').innerHTML = '<div class="alert alert-danger" role="alert"> ' + xmlHttp.responseText + ' </div>';
           }
         }
-        url = 'https://' + window.location.hostname + '/assistant/operation/' + name + '/' + document.getElementById('user').value + ':' + document.getElementById('pass').value;
+        url = '//' + window.location.hostname + '/assistant/operation/' + name + '/' + document.getElementById('user').value + ':' + document.getElementById('pass').value;
         xmlHttp.open( "GET", url, true ); // false for synchronous request
         xmlHttp.send( null );
       }
