@@ -14,7 +14,6 @@ UPLOAD_FOLDER = ''
 ALLOWED_EXTENSIONS = {'json'}
 
 app = Flask(__name__)
-cors = CORS(app)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 #Global variables
