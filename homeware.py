@@ -26,8 +26,8 @@ def runapp():
 
 ########################### APP ###########################
 
-@app.route('/login')
 @app.route('/login/')
+@app.route('/login')
 def login():
     return render_template('panel/login.html')
 
@@ -42,9 +42,9 @@ def index():
 @app.route('/devices')
 @app.route('/devices/')
 @app.route('/devices/<process>/')
-@app.route('/devices/<process>/')
-@app.route('/devices/<process>/<id>')
+@app.route('/devices/<process>')
 @app.route('/devices/<process>/<id>/')
+@app.route('/devices/<process>/<id>')
 def devices(process = "", id = ""):
 
     config = readConfig()
@@ -70,9 +70,9 @@ def devices(process = "", id = ""):
 @app.route('/rules')
 @app.route('/rules/')
 @app.route('/rules/<process>/')
-@app.route('/rules/<process>/')
-@app.route('/rules/<process>/<int:id>')
+@app.route('/rules/<process>')
 @app.route('/rules/<process>/<int:id>/')
+@app.route('/rules/<process>/<int:id>')
 def rules(process = "", id = -1):
 
     config = readConfig()
@@ -95,8 +95,8 @@ def rules(process = "", id = -1):
     else:
         return render_template('panel/rules.html', domain=domain)
 
-@app.route('/settings')
 @app.route('/settings/')
+@app.route('/settings')
 @app.route('/settings/<msg>/')
 def settings(msg = ''):
 
@@ -112,10 +112,10 @@ def settings(msg = ''):
 
     return render_template('panel/settings.html', domain=domain, token=token, msg=msg)
 
-@app.route('/assistant')
 @app.route('/assistant/')
-@app.route('/assistant/<step>')
+@app.route('/assistant')
 @app.route('/assistant/<step>/')
+@app.route('/assistant/<step>')
 def assistant(step = 'welcome'):
 
     steps = {
@@ -146,7 +146,7 @@ def assistant(step = 'welcome'):
     return render_template('assistant/step_' + step + '.html', step=step, next=steps[step])
 
 ########################### API ###########################
-#@app.route('/test/')
+@app.route('/test/')
 @app.route('/test')
 def test():
     publish.single("test", "payload", hostname="localhost")
@@ -155,8 +155,8 @@ def test():
 #Asistant operations
 @app.route('/assistant/operation/<segment>')
 @app.route('/assistant/operation/<segment>/')
-@app.route('/assistant/operation/<segment>/<value>')
 @app.route('/assistant/operation/<segment>/<value>/')
+@app.route('/assistant/operation/<segment>/<value>')
 def operation(segment, value=""):
     if segment == 'user':
         try:
@@ -183,8 +183,8 @@ def operation(segment, value=""):
 @app.route("/front/<operation>/")
 @app.route("/front/<operation>/<segment>")
 @app.route("/front/<operation>/<segment>/")
-@app.route("/front/<operation>/<segment>/<value>")
 @app.route("/front/<operation>/<segment>/<value>/")
+@app.route("/front/<operation>/<segment>/<value>")
 def front(operation, segment = "", value = ''):
     #Log in doesn't require token
     if operation == 'login':
@@ -459,8 +459,8 @@ def tokenGenerator(agent, type):
         return 'Something goes wrong'
 
 #Auth endpoint
-@app.route("/auth")
 @app.route("/auth/")
+@app.route("/auth")
 def auth():
     token = readToken();                #Tokens from the DDBB
     clientId = request.args.get('client_id')    #ClientId from the client
@@ -554,8 +554,8 @@ def token():
         return response
 
 #Google's endpoint
-@app.route("/smarthome", methods=['POST'])
 @app.route("/smarthome/", methods=['POST'])
+@app.route("/smarthome", methods=['POST'])
 def smarthome():
     #Get all data
     body = request.json
@@ -650,8 +650,8 @@ def smarthome():
         return "A"
 
 #Clock endpoint
-@app.route("/clock")
 @app.route("/clock/")
+@app.route("/clock")
 def clock():
     ts = time.localtime(time.time())
     h = ts.tm_hour
@@ -666,8 +666,8 @@ def page_not_found(error):
 def page_not_found(error):
     return 'La qué has liado pollito'
 
-@app.route("/cron")
 @app.route("/cron/")
+@app.route("/cron")
 def cron():
     updatestates()
     verifyRules()
