@@ -8,12 +8,6 @@ echo "* * * * * curl http://127.0.0.1/cron/" >> copy
 crontab copy
 rm copy
 
-sudo cp configuration_templates/homeware.service /lib/systemd/system/
-
-#sudo systemctl start homeware
-#sudo systemctl stop homeware
-#sudo systemctl status homeware
-
 #Get current sudo crontab
 sudo crontab -l > copy
 #Set the new cron job up
