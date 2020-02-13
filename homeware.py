@@ -554,7 +554,8 @@ def token():
         return response
 
 #Google's endpoint
-#@app.route("/smarthome/", methods=['POST'])
+@app.route("/smarthome", methods=['GET'])
+@app.route("/smarthome/", methods=['POST'])
 @app.route("/smarthome", methods=['POST'])
 def smarthome():
     #Get all data
