@@ -149,7 +149,7 @@ def assistant(step = 'welcome'):
 @app.route('/test/')
 @app.route('/test')
 def test():
-    publish.single("test", "payload", hostname="localhost")
+    publish.single("test", "payload", hostname="broker.net.gicom.com.ar")
     return 'Load'
 
 #Asistant operations
@@ -627,7 +627,7 @@ def smarthome():
                         deviceParamsKeys = deviceParams.keys()
                         for key in deviceParamsKeys:
                             data['status'][deviceId][key] = deviceParams[key]
-                        publish.single("device/"+deviceId, json.dumps(data['status'][deviceId]), hostname="localhost")
+                        publish.single("device/"+deviceId, json.dumps(data['status'][deviceId]), hostname="broker.net.gicom.com.ar")
 
                     obj['payload']['commands'][n]['states'] = data['status']
                     n += 1
@@ -742,7 +742,7 @@ def verifyRules():
         if verified == ammountTriggers:
             for target in rule['targets']:
                 data['status'][target['id']][target['param']] = target['value']
-                publish.single("device/"+target['id'], json.dumps(data['status'][target['id']]), hostname="localhost")
+                publish.single("device/"+target['id'], json.dumps(data['status'][target['id']]), hostname="broker.net.gicom.com.ar")
 
     writeJSON(data)
 
@@ -766,14 +766,14 @@ def on_message(client, userdata, msg):
         data = readJSON();
         data['status'][id][param] = value;
         writeJSON(data)
-        publish.single("device/"+id, json.dumps(data['status'][id]), hostname="localhost")
+        publish.single("device/"+id, json.dumps(data['status'][id]), hostname="broker.net.gicom.com.ar")
     elif intent == 'rules':
         data = readJSON();
         data['status'][id][param] = value;
         writeJSON(data)
         verifyRules()
     elif intent == 'request':
-        publish.single("device/"+id, json.dumps(data['status'][id]), hostname="localhost")
+        publish.single("device/"+id, json.dumps(data['status'][id]), hostname="broker.net.gicom.com.ar")
 
 # MQTT reader
 def mqttReader():
