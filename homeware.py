@@ -146,8 +146,8 @@ def assistant(step = 'welcome'):
     return render_template('assistant/step_' + step + '.html', step=step, next=steps[step])
 
 ########################### API ###########################
-@app.route('/test')
 @app.route('/test/')
+@app.route('/test')
 def test():
     publish.single("test", "payload", hostname="localhost")
     return 'Load'
@@ -482,8 +482,8 @@ def auth():
         return 'Algo ha ido mal en la autorización'
 
 #Token's endpoint
-@app.route('/token', methods = ['GET', 'POST'])
 @app.route('/token/', methods = ['GET', 'POST'])
+@app.route('/token', methods = ['GET', 'POST'])
 def token():
 
     agent = request.headers['User-Agent']
